@@ -7,10 +7,22 @@ struct Admin {
 	char password[20];
 };
 
+struct Aluno {
+	char nome[50];
+	int n1;
+	int n2;
+	int af;
+	int notaTotal;
+	char situacao[20];
+};
+
 struct Admin admin = { "admin", "senha" };
 
 
 int main(int argc, char *argv[]) {
+	
+	struct Aluno alunos[100];
+	int contadorAlunos = 0;
 	
 	char usuario[20];
 	char senha[20];
@@ -23,7 +35,7 @@ int main(int argc, char *argv[]) {
 
 			system("cls");
 			
-			printf("****Bem-Vindo****\n\n");
+			printf("**********Bem-Vindo**********\n\n");
 			printf("Insira seu usuario: ");
 			scanf("%s", usuario);
 			printf("Insira sua senha: ");
@@ -32,7 +44,8 @@ int main(int argc, char *argv[]) {
 			if(strcmp(usuario, admin.user) == 0 && strcmp(senha, admin.password) == 0){
 				logado = 1;
 			} else{
-				printf("Usuario ou senha invalida.");
+				printf("\n\n**********Usuario ou senha invalida.**********\n\n");
+				system("pause");
 			}
 			
 			while(logado == 1 ){
@@ -89,7 +102,7 @@ int main(int argc, char *argv[]) {
 	}while(rodando == 1);
 		
 	
-	
+	printf("\nObrigado por usar o sistema!\n");
 	
 	return 0;
 }
