@@ -22,6 +22,8 @@ void adicionarAluno(struct Aluno alunos[], int *contadorAlunos);
 void listarAlunos(struct Aluno alunos[], int contadorAlunos);
 void removerAluno(struct Aluno alunos[], int *contadorAlunos);
 void procurarAluno(struct Aluno alunos[], int *contadorAlunos);
+void atualizarNota(struct Aluno alunos[], int contadorAlunos);
+void cabecalho();
 
 
 int main(int argc, char *argv[]) {
@@ -40,7 +42,7 @@ int main(int argc, char *argv[]) {
 
 			system("cls");
 			
-			printf("**********Bem-Vindo**********\n\n");
+			cabecalho();
 			printf("Insira seu usuario: ");
 			scanf("%s", usuario);
 			printf("Insira sua senha: ");
@@ -56,14 +58,15 @@ int main(int argc, char *argv[]) {
 			while(logado == 1 ){
 				system("cls");
 				
+				cabecalho();
 				printf("****Bem-Vindo****\n\n");
 				printf("Usuario logado: %s\n\n", admin.user);
 			
-				printf("O que você quer fazer?\n\n");
+				printf("O que voce quer fazer?\n\n");
 		
 				printf("[1] Adicionar alunos.\n");
 				printf("[2] Remover aluno.\n");
-				printf("[3] Atualize notas do Aluno [AF].\n");
+				printf("[3] Adicionar nota AF do Aluno.\n");
 				printf("[4] Listar aluno.\n");
 				printf("[5] Procurar aluno.\n");
 				printf("[6] Deslogar.\n\n");
@@ -82,6 +85,7 @@ int main(int argc, char *argv[]) {
 						break;
 				
 					case 3:
+						atualizarNota(alunos, contadorAlunos);
 						break;
 					
 					case 4:
@@ -189,6 +193,7 @@ void listarAlunos(struct Aluno alunos[],int contadorAlunos){
 				printf("Nome: %s\n", alunos[i].nome);
 				printf("Nota 1: %d\n", alunos[i].n1);
 				printf("Nota 2: %d\n", alunos[i].n2);
+				printf("Nota Final: %d\n", alunos[i].notaTotal);
 				printf("Situacao: %s\n\n", alunos[i].situacao);
 			}
 	
@@ -206,6 +211,7 @@ void listarAlunos(struct Aluno alunos[],int contadorAlunos){
 					printf("Nome: %s\n", alunos[i].nome);
 					printf("Nota 1: %d\n", alunos[i].n1);
 					printf("Nota 2: %d\n", alunos[i].n2);
+					printf("Nota Final: %d\n", alunos[i].notaTotal);
 					printf("Situacao: %s\n\n", alunos[i].situacao);
 				}	
 			}
@@ -223,6 +229,7 @@ void listarAlunos(struct Aluno alunos[],int contadorAlunos){
 					printf("Nome: %s\n", alunos[i].nome);
 					printf("Nota 1: %d\n", alunos[i].n1);
 					printf("Nota 2: %d\n", alunos[i].n2);
+					printf("Nota Final: %d\n", alunos[i].notaTotal);
 					printf("Situacao: %s\n\n", alunos[i].situacao);
 				}	
 			}
@@ -291,6 +298,73 @@ void procurarAluno(struct Aluno alunos[], int *contadorAlunos){
 			
 		}	
 	}
+}
+
+void atualizarNota(struct Aluno alunos[], int contadorAlunos){
+	system("cls");
+	
+	char atualizarAluno[50];
+	int encontrado = 0;
+	
+	printf("\n\nDigite o nome do Aluno para Adicionar nota AF: ");
+	scanf("%s", atualizarAluno);
+	
+	int i;
+	for(i = 0 ; i < contadorAlunos ; i++){
+		
+		if(strcmp(alunos[i].nome, atualizarAluno) ==0){
+			encontrado = 1;
+		    int notaAf;
+		    
+		    system("cls");
+		    printf("Digite a nota AF de %s: ", alunos[i].nome);
+		    scanf("%d", &notaAf);
+		    
+		    if(alunos[i].n1 >= alunos[i].n2){
+		    	system("cls");
+		    	printf("A nota A2 foi alterada pois era a menor.\n\n");
+		    	alunos[i].n2 = notaAf;	
+		    	system("pause");
+		    	
+			} else{
+				system("cls");
+		    	printf("A nota A1 foi alterada pois era a menor.\n\n");
+				alunos[i].n1 = notaAf;
+				system("pause");
+			}
+			
+			alunos[i].notaTotal = alunos[i].n1 + alunos[i].n2;
+			
+			if(alunos[i].notaTotal <= 5){
+				system("cls");
+				printf("Aluno Nao alcancou a nota esperada e por isso foi REPROVADO.\n\n");
+				strcpy(alunos[i].situacao, "REPROVADO");
+				system("pause");
+				
+			} else{
+				system("cls");
+				printf("Aluno Aprovado por AF.\n\n");
+				strcpy(alunos[i].situacao, "APROVADO");
+				system("pause");
+				
+			}
+		    
+		    
+		}
+		
+	}
+	
+	if(encontrado ==0){
+		printf("*****Aluno não encontrado*****\n\n");
+		system("pause");
+	}
+	
+}
+
+void cabecalho(){
+	printf("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++\n");
+	printf("+++++                   BRAZ CUBAS EDUCACAO                      +++++\n");
+	printf("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++\n\n\n");
 }
 
 
