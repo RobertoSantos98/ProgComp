@@ -8,6 +8,7 @@ struct Admin {
 };
 
 struct Aluno {
+	char rgm[7];
 	char nome[50];
 	int n1;
 	int n2;
@@ -23,11 +24,14 @@ void listarAlunos(struct Aluno alunos[], int contadorAlunos);
 void removerAluno(struct Aluno alunos[], int *contadorAlunos);
 void procurarAluno(struct Aluno alunos[], int *contadorAlunos);
 void atualizarNota(struct Aluno alunos[], int contadorAlunos);
+void exportarArquivo(struct Aluno alunos[], FILE *arquivo);
 void cabecalho();
+void carregando();
 
 
 int main(int argc, char *argv[]) {
 	
+	FILE *arquivo;
 	struct Aluno alunos[100];
 	int contadorAlunos = 0;
 	
@@ -39,9 +43,7 @@ int main(int argc, char *argv[]) {
 	int op;
 	
 	do{
-
 			system("cls");
-			
 			cabecalho();
 			printf("Insira seu usuario: ");
 			scanf("%s", usuario);
@@ -69,8 +71,10 @@ int main(int argc, char *argv[]) {
 				printf("[3] Adicionar nota AF do Aluno.\n");
 				printf("[4] Listar aluno.\n");
 				printf("[5] Procurar aluno.\n");
-				printf("[6] Deslogar.\n\n");
-				printf("[7] Sair do sistema.\n\n");
+				printf("[6] Exportar arquivo para .txt.\n\n");
+				printf("[7] Sair do sistema.\n");
+				printf("[8] Editar Credenciais.\n");
+				printf("[9] Deslogar.\n\n");
 		
 				printf("Digite o numero da opcao desejada: ");
 				scanf("%d", &op);
@@ -97,12 +101,19 @@ int main(int argc, char *argv[]) {
 						break;
 					
 					case 6:
-						logado = 0;
+						exportarArquivo(alunos, arquivo);
 						break;
 					
 					case 7:
 						logado = 0;
 						rodando = 0;
+						break;
+						
+					case 8:
+						break;
+						
+					case 9:
+						logado = 0;
 						break;
 						
 					default:
@@ -133,25 +144,46 @@ void adicionarAluno(struct Aluno alunos[], int *contadorAlunos){
 	int quantidade;
 	int i;
 	
-	printf("Quantos alunos voce deseja adicionar no momento? => ");
+	printf("Digite quantos alunos voce deseja adicionar no momento => ");
 	scanf("%d", &quantidade);
+	
 	
 	for( i = *contadorAlunos ; i < *contadorAlunos + quantidade ; i++ ){
 		system("cls");
 		
-		printf("Digite o nome do Aluno %d:", i);
+		do{
+			printf("Digite o RGM do Aluno %d:", i);
+			scanf("%s", alunos[i].rgm);
+
+			if(strlen(alunos[i].rgm) > 8){
+				printf("O RGM deve ter no maximo 8 caracteres.\n");
+				system("pause");
+				system("cls");
+			}
+		}while(strlen(alunos[i].rgm) > 8);
+		
+		printf("\nDigite o NOME do Aluno %d:", i);
 		scanf("%s", alunos[i].nome);
 		
-		printf("Digite a nota 1 do Aluno %d: ", i);
-		scanf("%d", &alunos[i].n1);
+		do{
+			system("cls");
+			printf("Digite a nota 1 do Aluno %d: ", i);
+			scanf("%d", &alunos[i].n1);
+			
+		}while(alunos[i].n1 < 0 || alunos[i].n1 > 5);
 		
-		printf("Digite a nota 2 do Aluno %d: ", i);
-		scanf("%d", &alunos[i].n2);
-		
+		do{
+			system("cls");
+			printf("Digite a nota 2 do Aluno %d: ", i);
+			scanf("%d", &alunos[i].n2);
+				
+		}while(alunos[i].n2 < 0 || alunos[i].n2 > 5);
+
 		alunos[i].notaTotal = alunos[i].n1 + alunos[i].n2;
 		
 		if(alunos[i].notaTotal <= 5){
 			strcpy(alunos[i].situacao, "AF");
+			
 		} else{
 			
 			strcpy(alunos[i].situacao, "APROVADO");
@@ -182,6 +214,7 @@ void listarAlunos(struct Aluno alunos[],int contadorAlunos){
 	
 	switch(opListar){
 		case 1:
+			carregando();
 			system("cls");
 			
 			printf("%d/100\n\n", contadorAlunos);
@@ -190,6 +223,7 @@ void listarAlunos(struct Aluno alunos[],int contadorAlunos){
 				printf("*****************************************************\n");
 				printf("Aluno %d\n\n", i);
 		
+				printf("RGM: %s\n", alunos[i].rgm);
 				printf("Nome: %s\n", alunos[i].nome);
 				printf("Nota 1: %d\n", alunos[i].n1);
 				printf("Nota 2: %d\n", alunos[i].n2);
@@ -201,7 +235,12 @@ void listarAlunos(struct Aluno alunos[],int contadorAlunos){
 			break;
 		
 		case 2:
+			carregando();
 			system("cls");
+			printf("Carregando Dados...");
+			sleep(3);
+			system("cls");
+			
 			for( i = 0 ; i < contadorAlunos ; i++ ){
 				
 				if(strcmp(alunos[i].situacao, "APROVADO") == 0){
@@ -209,6 +248,7 @@ void listarAlunos(struct Aluno alunos[],int contadorAlunos){
 					printf("Aluno %d\n\n", i);
 		
 					printf("Nome: %s\n", alunos[i].nome);
+					printf("RGM: %s\n", alunos[i].rgm);
 					printf("Nota 1: %d\n", alunos[i].n1);
 					printf("Nota 2: %d\n", alunos[i].n2);
 					printf("Nota Final: %d\n", alunos[i].notaTotal);
@@ -219,7 +259,13 @@ void listarAlunos(struct Aluno alunos[],int contadorAlunos){
 			break;
 		
 		case 3:
+			carregando();
+			
 			system("cls");
+			printf("Carregando Dados...");
+			sleep(3);
+			system("cls");
+			
 			for( i = 0 ; i < contadorAlunos ; i++ ){
 				
 				if(strcmp(alunos[i].situacao, "AF") == 0){
@@ -227,6 +273,7 @@ void listarAlunos(struct Aluno alunos[],int contadorAlunos){
 					printf("Aluno %d\n\n", i);
 		
 					printf("Nome: %s\n", alunos[i].nome);
+					printf("RGM: %s\n", alunos[i].rgm);
 					printf("Nota 1: %d\n", alunos[i].n1);
 					printf("Nota 2: %d\n", alunos[i].n2);
 					printf("Nota Final: %d\n", alunos[i].notaTotal);
@@ -250,8 +297,12 @@ void removerAluno(struct Aluno alunos[], int *contadorAlunos){
 	char alunoExcluir[50];
 	int encontrado = 0;
 	
-	printf("Digite o nome do Aluno cujo a intencao seja excluir: ");
+	printf("Digite o nome do Aluno cujo a intencao seja excluir ou Digite 'voltar' para retornar ao MENU: ");
 	scanf("%s", alunoExcluir);
+	
+	if(strcmp(alunoExcluir, "voltar")){
+		return;
+	}
 	
 	int i;
 	for( i = 0 ; i < *contadorAlunos ; i++ ){
@@ -349,6 +400,7 @@ void atualizarNota(struct Aluno alunos[], int contadorAlunos){
 				
 			}
 		    
+		    break;
 		    
 		}
 		
@@ -361,10 +413,62 @@ void atualizarNota(struct Aluno alunos[], int contadorAlunos){
 	
 }
 
+void exportarArquivo(struct Aluno alunos[], FILE *arquivo){
+	carregando();
+	system("cls");
+	
+	arquivo = fopen("AlunosBrazCubas.txt", "w");
+	
+	if(arquivo == NULL){
+		system("cls");
+		printf("Erro ao abrir Arquivo!\n\n");
+		system("pause");
+		return;
+	}
+	
+	int i;
+	for ( i = 0; i < 100; i++) {
+		if (strlen(alunos[i].nome) > 0) {
+			fprintf(arquivo, "Aluno %d\n", i);
+			fprintf(arquivo, "Nome: %s\n", alunos[i].nome);
+			fprintf(arquivo, "RGM: %s\n", alunos[i].rgm);
+			fprintf(arquivo, "Nota 1: %d\n", alunos[i].n1);
+			fprintf(arquivo, "Nota 2: %d\n", alunos[i].n2);
+			fprintf(arquivo, "Nota Total: %d\n", alunos[i].notaTotal);
+			fprintf(arquivo, "Situacao: %s\n\n", alunos[i].situacao);
+			fprintf(arquivo, "************************************************");
+		}
+	}
+	
+	fclose(arquivo);
+	
+	printf("Arquivo Exportado com sucesso!\n\n");
+	system("pause");
+	
+}
+
+
+
 void cabecalho(){
 	printf("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++\n");
 	printf("+++++                   BRAZ CUBAS EDUCACAO                      +++++\n");
 	printf("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++\n\n\n");
+}
+
+void carregando(){
+
+system("cls");
+printf("Carregando...\n");
+printf("||||||||||||||||");
+Sleep(1500);
+printf("||||||||||||||||||||");
+Sleep(900);
+printf("||||||||");
+Sleep(2000);
+printf("||||||||||||||||||||");
+Sleep(500);
+printf("||||||||");
+Sleep(400);
 }
 
 
