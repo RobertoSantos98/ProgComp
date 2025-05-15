@@ -8,7 +8,7 @@ struct Admin {
 };
 
 struct Aluno {
-	char rgm[7];
+	int rgm;
 	char nome[50];
 	int n1;
 	int n2;
@@ -17,19 +17,20 @@ struct Aluno {
 	char situacao[20];
 };
 
-struct Admin admin = { "admin", "senha" };
-
 void adicionarAluno(struct Aluno alunos[], int *contadorAlunos);
 void listarAlunos(struct Aluno alunos[], int contadorAlunos);
 void removerAluno(struct Aluno alunos[], int *contadorAlunos);
 void procurarAluno(struct Aluno alunos[], int *contadorAlunos);
 void atualizarNota(struct Aluno alunos[], int contadorAlunos);
 void exportarArquivo(struct Aluno alunos[], FILE *arquivo);
+void editarAcesso(struct Admin *admin);
 void cabecalho();
 void carregando();
 
 
 int main(int argc, char *argv[]) {
+	
+	struct Admin admin = { "admin", "senha" };
 	
 	FILE *arquivo;
 	struct Aluno alunos[100];
@@ -61,7 +62,7 @@ int main(int argc, char *argv[]) {
 				system("cls");
 				
 				cabecalho();
-				printf("****Bem-Vindo****\n\n");
+				printf("****Bem-Vindo****\n");
 				printf("Usuario logado: %s\n\n", admin.user);
 			
 				printf("O que voce quer fazer?\n\n");
@@ -110,6 +111,7 @@ int main(int argc, char *argv[]) {
 						break;
 						
 					case 8:
+						editarAcesso(&admin);
 						break;
 						
 					case 9:
@@ -151,19 +153,21 @@ void adicionarAluno(struct Aluno alunos[], int *contadorAlunos){
 	for( i = *contadorAlunos ; i < *contadorAlunos + quantidade ; i++ ){
 		system("cls");
 		
-		do{
-			printf("Digite o RGM do Aluno %d:", i);
-			scanf("%s", alunos[i].rgm);
+		do {
+    		printf("Digite o RGM do Aluno %d: ", i);
+    		scanf("%d", &alunos[i].rgm);
+    		while (getchar() != '\n');
 
-			if(strlen(alunos[i].rgm) > 8){
-				printf("O RGM deve ter no maximo 8 caracteres.\n");
-				system("pause");
-				system("cls");
-			}
-		}while(strlen(alunos[i].rgm) > 8);
+    		if(alunos[i].rgm > 99999999){
+        		printf("O RGM deve ter no máximo 8 dígitos.\n");
+        		system("pause");
+        		system("cls");
+    		}
+		} while(alunos[i].rgm > 99999999);
+
 		
 		printf("\nDigite o NOME do Aluno %d:", i);
-		scanf("%s", alunos[i].nome);
+		scanf(" %[^\n]", alunos[i].nome);
 		
 		do{
 			system("cls");
@@ -223,7 +227,7 @@ void listarAlunos(struct Aluno alunos[],int contadorAlunos){
 				printf("*****************************************************\n");
 				printf("Aluno %d\n\n", i);
 		
-				printf("RGM: %s\n", alunos[i].rgm);
+				printf("RGM: %d\n", alunos[i].rgm);
 				printf("Nome: %s\n", alunos[i].nome);
 				printf("Nota 1: %d\n", alunos[i].n1);
 				printf("Nota 2: %d\n", alunos[i].n2);
@@ -248,7 +252,7 @@ void listarAlunos(struct Aluno alunos[],int contadorAlunos){
 					printf("Aluno %d\n\n", i);
 		
 					printf("Nome: %s\n", alunos[i].nome);
-					printf("RGM: %s\n", alunos[i].rgm);
+					printf("RGM: %d\n", alunos[i].rgm);
 					printf("Nota 1: %d\n", alunos[i].n1);
 					printf("Nota 2: %d\n", alunos[i].n2);
 					printf("Nota Final: %d\n", alunos[i].notaTotal);
@@ -273,7 +277,7 @@ void listarAlunos(struct Aluno alunos[],int contadorAlunos){
 					printf("Aluno %d\n\n", i);
 		
 					printf("Nome: %s\n", alunos[i].nome);
-					printf("RGM: %s\n", alunos[i].rgm);
+					printf("RGM: %d\n", alunos[i].rgm);
 					printf("Nota 1: %d\n", alunos[i].n1);
 					printf("Nota 2: %d\n", alunos[i].n2);
 					printf("Nota Final: %d\n", alunos[i].notaTotal);
@@ -300,7 +304,7 @@ void removerAluno(struct Aluno alunos[], int *contadorAlunos){
 	printf("Digite o nome do Aluno cujo a intencao seja excluir ou Digite 'voltar' para retornar ao MENU: ");
 	scanf("%s", alunoExcluir);
 	
-	if(strcmp(alunoExcluir, "voltar")){
+	if(strcmp(alunoExcluir, "voltar") == 0){
 		return;
 	}
 	
@@ -431,7 +435,7 @@ void exportarArquivo(struct Aluno alunos[], FILE *arquivo){
 		if (strlen(alunos[i].nome) > 0) {
 			fprintf(arquivo, "Aluno %d\n", i);
 			fprintf(arquivo, "Nome: %s\n", alunos[i].nome);
-			fprintf(arquivo, "RGM: %s\n", alunos[i].rgm);
+			fprintf(arquivo, "RGM: %d\n", alunos[i].rgm);
 			fprintf(arquivo, "Nota 1: %d\n", alunos[i].n1);
 			fprintf(arquivo, "Nota 2: %d\n", alunos[i].n2);
 			fprintf(arquivo, "Nota Total: %d\n", alunos[i].notaTotal);
@@ -447,12 +451,38 @@ void exportarArquivo(struct Aluno alunos[], FILE *arquivo){
 	
 }
 
+void editarAcesso(struct Admin *admin){
+	system("cls");
+	
+	char senhaAtual[50];
+	
+	printf("Digite a senha atual: ");
+	scanf("%s", senhaAtual);
+	
+	if(strcmp(senhaAtual, admin->password) == 0 ){
+		system("cls");
+		
+		printf("Digite o novo usuario: ");
+		scanf("%s", admin->user);
+		
+		printf("Digite a nova senha: ");
+		scanf("%s", admin->password);
+		
+		system("cls");
+		printf("***Credenciais alteradas com sucesso***\n\n");
+		system("pause");
+	} else{
+		printf("A senha está incorreta\n\n");
+		system("pause");
+	}
+}
+
 
 
 void cabecalho(){
-	printf("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++\n");
-	printf("+++++                   BRAZ CUBAS EDUCACAO                      +++++\n");
-	printf("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++\n\n\n");
+	printf("+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++\n");
+	printf("+++++                 BRAZ CUBAS EDUCACAO                     +++++\n");
+	printf("+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++\n\n\n");
 }
 
 void carregando(){

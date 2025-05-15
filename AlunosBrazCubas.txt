@@ -1,0 +1,434 @@
+Aluno 3
+Nome: 
+
+RGM: 0
+Nota 1: 32760
+Nota 2: 2034180
+Nota Total: 1
+Situacao: 
+
+************************************************Aluno 7
+Nome: àï¯
+RGM: 0
+Nota 1: 0
+Nota 2: -1833223392
+Nota Total: -1794230256
+Situacao: ¯
+
+************************************************Aluno 9
+Nome: ¿
+RGM: 32760
+Nota 1: 0
+Nota 2: -1836633726
+Nota Total: -1833223832
+Situacao: ¯
+
+************************************************Aluno 11
+Nome: c
+RGM: 6357069
+Nota 1: 5439596
+Nota 2: 7602277
+Nota Total: 7209071
+Situacao: t
+
+************************************************Aluno 12
+Nome: t
+RGM: 7471215
+Nota 1: 0
+Nota 2: 0
+Nota Total: 32760
+Situacao: 
+
+************************************************Aluno 13
+Nome: 
+RGM: 42652
+Nota 1: 32760
+Nota 2: -1833223912
+Nota Total: 16
+Situacao: 
+
+************************************************Aluno 17
+Nome: `‚b
+RGM: 0
+Nota 1: 0
+Nota 2: 2
+Nota Total: 0
+Situacao: 
+
+************************************************Aluno 19
+Nome: ¥
+RGM: 0
+Nota 1: 27682
+Nota 2: 1204
+Nota Total: 3
+Situacao: 
+
+************************************************Aluno 21
+Nome: ®‚b
+RGM: 0
+Nota 1: 3
+Nota 2: 6480440
+Nota Total: 0
+Situacao: 
+
+************************************************Aluno 23
+Nome: (
+RGM: 1
+Nota 1: 7077996
+Nota 2: 0
+Nota Total: 0
+Situacao: 
+
+************************************************Aluno 27
+Nome: ¿Áb
+RGM: 0
+Nota 1: 0
+Nota 2: 0
+Nota Total: 0
+Situacao: 
+
+************************************************Aluno 31
+Nome: ¿Èb
+RGM: 0
+Nota 1: 0
+Nota 2: 6483264
+Nota Total: 256
+Situacao: 
+
+************************************************Aluno 33
+Nome: (
+RGM: 2555942
+Nota 1: 4390978
+Nota 2: 4522052
+Nota Total: 4784200
+Situacao: J
+
+************************************************Aluno 34
+Nome: V
+RGM: 5570644
+Nota 1: 5308496
+Nota 2: 5439570
+Nota Total: 5701718
+Situacao: X
+
+************************************************Aluno 35
+Nome:  &   ! ∆0 `9 Rç
+RGM: 26288154
+Nota 1: 24641917
+Nota 2: 10551456
+Nota Total: 10813604
+Situacao: ¶
+
+************************************************Aluno 36
+Nome: ≤
+RGM: 11600048
+Nota 1: 13435084
+Nota 2: 13566158
+Nota Total: 13828306
+Situacao: ‘
+
+************************************************Aluno 37
+Nome: ¿
+RGM: 14614750
+Nota 1: 14352602
+Nota 2: 14483676
+Nota Total: 52428
+Situacao: 
+
+************************************************Aluno 38
+Nome: 
+RGM: 327684
+Nota 1: 2162720
+Nota 2: 2293794
+Nota Total: 2555942
+Situacao: (
+
+************************************************Aluno 39
+Nome: 4
+RGM: 3342386
+Nota 1: 5177422
+Nota 2: 5308496
+Nota Total: 5570644
+Situacao: V
+
+************************************************Aluno 40
+Nome: b
+RGM: 6357088
+Nota 1: 8192124
+Nota 2: 8323198
+Nota Total: 26353690
+Situacao:  &   ! ∆0 `9 Rç
+
+************************************************Aluno 41
+Nome: ê
+RGM: 9372029
+Nota 1: 11206826
+Nota 2: 11337900
+Nota Total: 11600048
+Situacao: ≤
+
+************************************************Aluno 42
+Nome: æ
+RGM: 12386492
+Nota 1: 14221528
+Nota 2: 14352602
+Nota Total: 14614750
+Situacao: ‡
+
+************************************************Aluno 43
+Nome: Ï
+RGM: 15401194
+Nota 1: 14090454
+Nota 2: 0
+Nota Total: 6481328
+Situacao: 
+
+************************************************Aluno 44
+Nome: Í
+RGM: 187
+Nota 1: -1800267472
+Nota 2: 32760
+Nota Total: 0
+Situacao: 
+
+************************************************Aluno 45
+Nome: –Îb
+RGM: 32760
+Nota 1: 0
+Nota 2: 1252
+Nota Total: 0
+Situacao: 
+
+************************************************Aluno 46
+Nome: ¯
+RGM: 822083888
+Nota 1: 129
+Nota 2: 0
+Nota Total: 32760
+Situacao: Ä#Ø
+
+************************************************Aluno 47
+Nome: Å
+RGM: 0
+Nota 1: 0
+Nota 2: 11473696
+Nota Total: 11477888
+Situacao: 
+
+************************************************Aluno 48
+Nome: 
+RGM: 11468800
+Nota 1: 3
+Nota 2: 0
+Nota Total: 0
+Situacao: 
+
+************************************************Aluno 49
+Nome:  Ø
+RGM: 0
+Nota 1: 0
+Nota 2: 11
+Nota Total: 0
+Situacao: 
+
+************************************************Aluno 51
+Nome: ë
+RGM: 0
+Nota 1: 0
+Nota 2: 0
+Nota Total: 0
+Situacao: 
+
+************************************************Aluno 53
+Nome: 0
+RGM: 0
+Nota 1: 0
+Nota 2: 0
+Nota Total: 3
+Situacao: 
+
+************************************************Aluno 54
+Nome: ¯
+RGM: -1794321847
+Nota 1: 3
+Nota 2: 0
+Nota Total: 0
+Situacao: 
+
+************************************************Aluno 57
+Nome: tt´î¯
+RGM: 0
+Nota 1: -1
+Nota 2: 0
+Nota Total: -1800700912
+Situacao: ¯
+
+************************************************Aluno 59
+Nome: `Ø
+RGM: 32760
+Nota 1: 0
+Nota 2: 1
+Nota Total: 0
+Situacao: 
+
+************************************************Aluno 60
+Nome: 
+RGM: -529697949
+Nota 1: -1800798208
+Nota 2: 32760
+Nota Total: -1
+Situacao: _Ø
+
+************************************************Aluno 61
+Nome: ã
+RGM: 50463490
+Nota 1: 32760
+Nota 2: -1800700456
+Nota Total: 0
+Situacao: 
+
+************************************************Aluno 63
+Nome: êk
+RGM: 0
+Nota 1: 0
+Nota 2: 879361
+Nota Total: -1800600949
+Situacao: ¯
+
+************************************************Aluno 64
+Nome: 
+RGM: 2147353476
+Nota 1: 2147353476
+Nota 2: 0
+Nota Total: 0
+Situacao: êk
+
+************************************************Aluno 65
+Nome: êí
+RGM: 0
+Nota 1: 0
+Nota 2: -1794193447
+Nota Total: 2
+Situacao: 
+
+************************************************Aluno 66
+Nome: ¯
+RGM: -1996488053
+Nota 1: 728528442
+Nota 2: 27682
+Nota Total: 32760
+Situacao: Ñ˛
+
+************************************************Aluno 67
+Nome: Ö˛
+RGM: 0
+Nota 1: 0
+Nota 2: 862560
+Nota Total: 862616
+Situacao: 
+
+************************************************Aluno 69
+Nome: P
+RGM: 0
+Nota 1: 0
+Nota 2: 6485593
+Nota Total: 851968
+Situacao: 
+
+************************************************Aluno 71
+Nome:  ó
+RGM: 0
+Nota 1: 32760
+Nota 2: 368
+Nota Total: 6485072
+Situacao: 
+
+************************************************Aluno 73
+Nome: (
+RGM: 0
+Nota 1: 0
+Nota 2: 877024
+Nota Total: 40
+Situacao: 
+
+************************************************Aluno 75
+Nome: ∑ï¯
+RGM: 0
+Nota 1: 0
+Nota 2: 48
+Nota Total: 0
+Situacao: 
+
+************************************************Aluno 77
+Nome: ¯ıb
+RGM: 0
+Nota 1: 0
+Nota 2: 6485896
+Nota Total: 3960832
+Situacao: 
+
+************************************************Aluno 78
+Nome: ¯
+RGM: -1794362928
+Nota 1: 0
+Nota 2: 0
+Nota Total: 0
+Situacao:  ˜b
+
+************************************************Aluno 79
+Nome: 
+RGM: 0
+Nota 1: 32760
+Nota 2: 890656
+Nota Total: -1794082416
+Situacao: ¯
+
+************************************************Aluno 80
+Nome: ¯
+RGM: -1793317776
+Nota 1: 0
+Nota 2: 0
+Nota Total: 0
+Situacao: @h
+
+************************************************Aluno 87
+Nome: |
+RGM: 0
+Nota 1: 0
+Nota 2: 11473744
+Nota Total: 11477888
+Situacao: 
+
+************************************************Aluno 89
+Nome: 
+RGM: 0
+Nota 1: 0
+Nota 2: -1794291926
+Nota Total: 11469544
+Situacao: 
+
+************************************************Aluno 91
+Nome:  Ø
+RGM: 1
+Nota 1: 0
+Nota 2: 0
+Nota Total: 0
+Situacao: 
+
+************************************************Aluno 95
+Nome: s
+RGM: 7274600
+Nota 1: 7209065
+Nota 2: 822083888
+Nota Total: 0
+Situacao: 
+
+************************************************Aluno 99
+Nome: q7@
+RGM: 0
+Nota 1: 0
+Nota 2: 1
+Nota Total: 4208521
+Situacao: 
+
+************************************************
